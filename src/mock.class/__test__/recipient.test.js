@@ -10,7 +10,7 @@ describe("acceptInjection", () => {
     jest.doMock("../covid19Vaccine", () => {
       return jest.fn().mockImplementation(() => {
         return {
-          composition: [],
+          composition: ["Sugar"],
         };
       });
     });
@@ -21,6 +21,7 @@ describe("acceptInjection", () => {
 
     recipient.acceptInjection(new Covid19Vaccine());
     expect(recipient.hasAntibodies).toBe(false);
+    expect(recipient.getHasAntibodies()).toBe(false);
   });
 
   test("should hasAntibodies be true if vaccine contain Virus Proteins", () => {
@@ -38,5 +39,7 @@ describe("acceptInjection", () => {
 
     recipient.acceptInjection(new Covid19Vaccine());
     expect(recipient.hasAntibodies).toBe(true);
+    expect(recipient.getHasAntibodies()).toBe(true);
+
   });
 });
