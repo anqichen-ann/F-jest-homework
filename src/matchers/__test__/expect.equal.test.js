@@ -14,7 +14,7 @@ describe("expect.equal", () => {
   test("TODO 4", () => {
     // TODO 4: to replace "matcher"
     const fn = () => {};
-    expect(fn).toEqual(expect.any(Function));
+    expect(fn).toBeInstanceOf(Function);
   });
   test("TODO 5", () => {
     // TODO 5: to replace "matcher"
